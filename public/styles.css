@@ -312,3 +312,223 @@ select, input[type=text], input[type=date], input[type=number], input[type=url],
 @media (max-width: 560px) {
   .form-row { grid-template-columns: 1fr; }
 }
+
+
+/* ==========================================================
+   SBE DESIGN SYSTEM V2
+   Safe overrides
+========================================================== */
+
+/* Background */
+
+body{
+    background:
+        radial-gradient(circle at top left,
+        rgba(59,183,198,.14),
+        transparent 38%),
+
+        radial-gradient(circle at top right,
+        rgba(233,185,73,.10),
+        transparent 42%),
+
+        linear-gradient(
+        180deg,
+        #F7FBFA 0%,
+        #EEF7F4 100%);
+
+    color:#173128;
+}
+
+
+/* Header */
+
+.site-header{
+
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+
+    background:rgba(255,255,255,.72);
+
+    border-bottom:1px solid rgba(0,0,0,.06);
+
+}
+
+
+/* Logo */
+
+.brand h1{
+
+    font-size:34px;
+
+    color:#184D3B;
+
+    font-weight:700;
+
+}
+
+
+/* Subtitle */
+
+.eyebrow{
+
+    color:#5E746B;
+
+    font-size:13px;
+
+}
+
+
+/* Buttons */
+
+.btn{
+
+    border-radius:16px;
+
+    transition:.30s ease;
+
+    font-weight:600;
+
+    box-shadow:
+    0 8px 24px rgba(0,0,0,.05);
+
+}
+
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+.btn-primary{
+
+    background:
+    linear-gradient(
+    135deg,
+    #27B6C8,
+    #1D745A);
+
+    color:white;
+
+    border:none;
+
+}
+
+
+/* Cards */
+
+.card{
+
+    background:
+    rgba(255,255,255,.72);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:none;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 18px 45px rgba(22,56,45,.08);
+
+    transition:
+    .35s ease;
+
+}
+
+
+.card:hover{
+
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 30px 60px rgba(22,56,45,.15);
+
+}
+
+
+/* Stats */
+
+.stats-strip{
+
+    background:transparent;
+
+    gap:18px;
+
+    border:none;
+
+}
+
+
+.stat{
+
+    background:
+    rgba(255,255,255,.70);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    box-shadow:
+    0 14px 30px rgba(0,0,0,.06);
+
+}
+
+
+.stat .num{
+
+    color:#1D745A;
+
+    font-size:34px;
+
+}
+
+
+/* Chips */
+
+.chip{
+
+    background:white;
+
+    border:none;
+
+    border-radius:999px;
+
+}
+
+
+.chip.active{
+
+    background:#1D745A;
+
+    color:white;
+
+}
+
+
+/* Panels */
+
+.panel{
+
+    background:
+    rgba(255,255,255,.90);
+
+    backdrop-filter:blur(30px);
+
+    color:#173128;
+
+    border:none;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 40px 80px rgba(0,0,0,.12);
+
+}
