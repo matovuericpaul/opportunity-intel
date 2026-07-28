@@ -1,0 +1,15 @@
+{
+  "name": "sbe-opportunity-intelligence-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Opportunity Intelligence Platform for SBE Aquafarm and SBE FBT — tracks, scores, and manages funding opportunities. Runs on Netlify with OpenRouter for AI features and Resend for email digests.",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}

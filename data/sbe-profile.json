@@ -1,0 +1,68 @@
+{
+  "founder": {
+    "name": "Eric",
+    "role": "Founder / independent operator",
+    "ageRange": "18-35",
+    "orgStatus": "SBE Aquafarm and SBE FBT are NOT registered organizations. Eric operates independently, in partnership with named collaborators. This is a critical eligibility filter: opportunities that REQUIRE a registered NGO/company are ineligible unless a fiscal sponsor or partner org is explicitly allowed.",
+    "credentials": [
+      "Resolution Project Fellow",
+      "2026 GLF (Global Landscapes Forum) Wetland Restoration Steward",
+      "Graduate trainee, TotalEnergies / Tilenga Project (well intervention & integrity operations)",
+      "Master's thesis in progress, incorporating an original football-betting analytical framework"
+    ],
+    "location": "Uganda (Rukungiri District and Kampala)"
+  },
+  "ventures": [
+    {
+      "id": "aquafarm",
+      "name": "SBE Aquafarm",
+      "tagline": "Restoring Wetlands. Rebuilding Lives.",
+      "sector": ["wetland restoration", "aquaculture", "circular/regenerative economy", "food security", "gender equality", "youth livelihoods"],
+      "location": "Mutara Village, Rukungiri District, Uganda",
+      "founded": 2023,
+      "orgType": "Youth-led social enterprise (unregistered — Eric operates independently, co-founded with Syliah Kagiiga)",
+      "coFounder": "Syliah Kagiiga — petroleum geology engineer, GLF Restoration Steward 2025-26",
+      "model": "Converts abandoned/hazardous clay-mining pits into managed fishpond ecosystems: Convert (consolidate pits, restore hydrology), Surround (native tree planting, habitat corridors), Employ (women from female-headed households, out-of-school youth), Hand Over (12-month ownership transition to community).",
+      "impactToDate": {
+        "wetlandRestoredHa": 1.5,
+        "miningPitsConverted": 20,
+        "annualFishProductionTonnes": 1.0,
+        "householdsReached": "150+",
+        "jobsCreated": 5,
+        "womenInWorkforcePct": "60%+",
+        "nativeTreesPlanted": 20
+      },
+      "18MonthTargets": {
+        "additionalWetlandHa": 2,
+        "combinedFishProductionTonnes": 3,
+        "householdsReached": 250,
+        "nativeTreesAdded": 50,
+        "communityMembersTrained": 20
+      },
+      "sdgAlignment": ["SDG 1 No Poverty", "SDG 2 Zero Hunger", "SDG 5 Gender Equality", "SDG 6 Clean Water and Sanitation", "SDG 8 Decent Work and Economic Growth", "SDG 13 Climate Action", "SDG 14/15 Life Below Water / Life on Land (wetland ecosystem)"],
+      "fundingHistory": "Purpose Earth grant application submitted (USD $8,000 requested, 18-month expansion phase). GLF Restoration Stewards program mentorship. Actively exploring microfinance and certification pathways.",
+      "idealOpportunityProfile": "Wetland/ecosystem restoration grants, aquaculture/fisheries innovation funds, youth-led environmental social enterprise fellowships, gender-and-environment funds, small grants (<$25k) open to individuals/informal community enterprises, GLF/CIFOR-ICRAF-adjacent restoration networks, safe-water and drowning-hazard-reduction funders, food security & nutrition funders in East Africa."
+    },
+    {
+      "id": "fbt",
+      "name": "SBE FBT (Fermented Bed Technology)",
+      "tagline": "A circular pig-waste economy for smallholder farmers",
+      "sector": ["circular economy", "waste-to-value", "livestock/piggery", "smallholder agriculture", "environmental sanitation"],
+      "location": "Wakiso District, Uganda (pilot)",
+      "orgType": "Pilot project — unregistered, run by Eric with technical supervisor Ronnie",
+      "model": "Fermented Bed Technology (FBT) piggery system that manages pig waste on-site through microbial fermentation, cutting odor/runoff pollution, reducing water use, and turning waste into a reusable input — a circular, low-cost alternative to conventional piggery waste management for smallholder farmers.",
+      "materialsBuilt": ["Excel-based piggery management/costing tool", "Field reference PDF for on-site technical supervisor"],
+      "sdgAlignment": ["SDG 2 Zero Hunger", "SDG 6 Clean Water and Sanitation", "SDG 12 Responsible Consumption and Production", "SDG 13 Climate Action (methane/waste reduction)"],
+      "idealOpportunityProfile": "Circular-economy and waste-to-value challenge funds, livestock/agritech innovation grants, smallholder farmer productivity funds, WASH (water/sanitation) funders, climate-smart agriculture fellowships, small pilot/proof-of-concept grants open to individuals."
+    }
+  ],
+  "eligibilityPriorities": [
+    "Open to individuals or informal/unregistered ventures (not strictly requiring NGO/company registration)",
+    "Youth-focused (ages 18-35)",
+    "East Africa / Uganda / Sub-Saharan Africa geographic scope, or open globally",
+    "Wetland restoration, aquaculture, circular economy, smallholder agriculture, gender & environment, or youth social enterprise themes",
+    "Grant, fellowship, prize, or challenge-fund format (not loans/equity unless explicitly relevant)",
+    "Award size roughly $500 - $50,000 is the practical sweet spot for current venture stage, though larger fellowship-style opportunities are still worth tracking"
+  ],
+  "writingVoice": "Direct, concrete, evidence-led. Leads with what has already been demonstrated (pits converted, hectares restored, households reached) before projecting forward. Avoids charity framing; frames the ventures as self-sustaining enterprises. Centers community ownership and named individuals (e.g., Agnes, Grace) as proof points."
+}

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SBE Opportunity Intelligence — Aquafarm &amp; FBT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="waterline" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40" width="34" height="34"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.35"/><circle cx="20" cy="20" r="12.5" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.6"/><circle cx="20" cy="20" r="6.5" fill="currentColor" opacity="0.9"/></svg>
+    </span>
+    <div>
+      <h1>Opportunity Intelligence</h1>
+      <p class="eyebrow">SBE Aquafarm &amp; SBE FBT · Mutara Village, Rukungiri &amp; Wakiso, Uganda</p>
+    </div>
+  </div>
+  <div class="header-actions">
+    <button id="scanBtn" class="btn btn-primary">
+      <span class="btn-label">Scan for new opportunities</span>
+      <span class="btn-sub">live web search</span>
+    </button>
+    <button id="addBtn" class="btn btn-ghost">+ Add opportunity</button>
+    <button id="digestBtn" class="btn btn-ghost">Send test digest</button>
+  </div>
+</header>
+
+<main>
+  <section class="stats-strip" id="statsStrip" aria-label="Summary stats"></section>
+
+  <section class="controls">
+    <div class="filter-group" role="group" aria-label="Filter by venture">
+      <button class="chip active" data-filter-venture="all">All ventures</button>
+      <button class="chip" data-filter-venture="aquafarm">SBE Aquafarm</button>
+      <button class="chip" data-filter-venture="fbt">SBE FBT</button>
+    </div>
+    <div class="filter-group" role="group" aria-label="Filter by status">
+      <select id="statusFilter">
+        <option value="all">All statuses</option>
+        <option value="not started">Not started</option>
+        <option value="in progress">In progress</option>
+        <option value="submitted">Submitted</option>
+        <option value="awarded">Awarded</option>
+        <option value="rejected">Rejected</option>
+      </select>
+    </div>
+    <label class="checkbox-inline">
+      <input type="checkbox" id="showArchived" /> Show archived
+    </label>
+    <div class="sort-group">
+      <label for="sortSelect">Sort by</label>
+      <select id="sortSelect">
+        <option value="deadline">Deadline (soonest)</option>
+        <option value="score">Fit score (highest)</option>
+        <option value="added">Recently added</option>
+      </select>
+    </div>
+  </section>
+
+  <div id="scanStatus" class="scan-status" hidden></div>
+
+  <section id="grid" class="grid" aria-live="polite">
+    <p class="loading">Loading opportunities…</p>
+  </section>
+</main>
+
+<!-- Detail / score / advice panel -->
+<div id="detailOverlay" class="overlay" hidden>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <button class="panel-close" id="closeDetail" aria-label="Close">&times;</button>
+    <div id="detailContent"></div>
+  </div>
+</div>
+
+<!-- Add / edit opportunity modal -->
+<div id="formOverlay" class="overlay" hidden>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+    <button class="panel-close" id="closeForm" aria-label="Close">&times;</button>
+    <h2 id="formTitle">Add opportunity</h2>
+    <form id="oppForm" class="opp-form">
+      <input type="hidden" name="id" />
+      <label>Name <input required name="name" /></label>
+      <label>Funder <input required name="funder" /></label>
+      <div class="form-row">
+        <label>Type
+          <select name="type">
+            <option value="grant">Grant</option>
+            <option value="fellowship">Fellowship</option>
+            <option value="prize">Prize</option>
+            <option value="challenge fund">Challenge fund</option>
+          </select>
+        </label>
+        <label>Currency <input name="currency" value="USD" /></label>
+      </div>
+      <div class="form-row">
+        <label>Amount min <input name="amountMin" type="number" /></label>
+        <label>Amount max <input name="amountMax" type="number" /></label>
+      </div>
+      <div class="form-row">
+        <label>Deadline <input name="deadline" type="date" /></label>
+        <label>Opening date <input name="openingDate" type="date" /></label>
+      </div>
+      <label>Application link <input name="applicationLink" type="url" placeholder="https://" /></label>
+      <label>Requirements <textarea name="requirements" rows="2"></textarea></label>
+      <label>Eligibility notes <textarea name="eligibilityNotes" rows="2" placeholder="Individuals allowed? Age range? Geography?"></textarea></label>
+      <div class="form-row">
+        <label>SDGs (comma separated) <input name="sdgs" placeholder="SDG 2, SDG 13" /></label>
+        <label>Past winners <input name="pastWinners" /></label>
+      </div>
+      <label>Review timeline <input name="reviewTimeline" /></label>
+      <div class="form-row">
+        <label>Venture fit
+          <select name="ventureFit" multiple size="2">
+            <option value="aquafarm">SBE Aquafarm</option>
+            <option value="fbt">SBE FBT</option>
+          </select>
+        </label>
+        <label>Status
+          <select name="status">
+            <option value="not started">Not started</option>
+            <option value="in progress">In progress</option>
+            <option value="submitted">Submitted</option>
+            <option value="awarded">Awarded</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </label>
+      </div>
+      <label>Notes <textarea name="notes" rows="2"></textarea></label>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Save opportunity</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>
