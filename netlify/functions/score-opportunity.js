@@ -14,6 +14,8 @@ Score the opportunity's fit for SBE's ventures from 0-100 using this rubric, the
 
 Weight eligibility for INDIVIDUALS/unregistered ventures heavily — SBE Aquafarm and SBE FBT are NOT registered organizations. An opportunity that flatly requires registered-org status with no individual or fiscal-sponsorship pathway should be capped well below 65 regardless of thematic fit.
 
+Not every opportunity is a monetary grant. Conferences, partnerships/MOUs, and strategic collaborations do not have a dollar amount, an award, or grant-style funding eligibility — score these on strategic value instead: does it build credibility, open new funder or technical relationships, expand market access, or create a pathway to future funding? Do not penalize a conference or partnership for lacking amountMin, amountMax, or a funding cycle — that is normal for these opportunity types, not a red flag.
+
 Respond ONLY with a JSON object of this exact shape:
 {
   "score": <integer 0-100>,
