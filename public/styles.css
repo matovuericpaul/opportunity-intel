@@ -471,11 +471,12 @@ select, input[type=text], input[type=date], input[type=number], input[type=url],
   color: #fff;
   box-shadow: 0 1px 0 rgba(255,255,255,0.35) inset;
 }
-.status-not-started { background: linear-gradient(180deg, #a9adb2, #7c8085); }
-.status-in-progress { background: linear-gradient(180deg, var(--orange), #c96f00); }
-.status-submitted { background: linear-gradient(180deg, var(--blue-top), var(--blue-bottom)); }
-.status-awarded { background: linear-gradient(180deg, #6bdb84, #2ea84a); }
-.status-rejected { background: linear-gradient(180deg, var(--red-top), var(--red-bottom)); }
+.status-identified { background: linear-gradient(180deg, #a9adb2, #7c8085); }
+.status-pursuing { background: linear-gradient(180deg, var(--orange), #c96f00); }
+.status-proposed { background: linear-gradient(180deg, var(--blue-top), var(--blue-bottom)); }
+.status-decision-pending { background: linear-gradient(180deg, var(--purple-top), var(--purple-bottom)); }
+.status-won { background: linear-gradient(180deg, #6bdb84, #2ea84a); }
+.status-declined { background: linear-gradient(180deg, var(--red-top), var(--red-bottom)); }
 
 .score-ring { display: flex; align-items: center; gap: 8px; }
 .score-ring svg circle { fill: none; stroke-width: 2.6; }
