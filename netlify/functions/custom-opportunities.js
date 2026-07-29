@@ -45,7 +45,7 @@ exports.handler = async (event) => {
         reviewTimeline: body.reviewTimeline || "",
         applicationLink: body.applicationLink || null,
         ventureFit: body.ventureFit || [],
-        status: body.status || "not started",
+        status: body.status || "identified",
         score: body.score || null,
         notes: body.notes || "",
         archived: false,
