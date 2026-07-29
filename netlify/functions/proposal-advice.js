@@ -43,7 +43,7 @@ exports.handler = async (event) => {
         { role: "system", content: systemPrompt },
         { role: "user", content: userContent }
       ],
-      maxTokens: 1400
+      maxTokens: 1000
     });
 
     return json(200, {
