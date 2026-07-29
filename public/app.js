@@ -48,13 +48,13 @@ function deadlineBadgeClass(days) {
 }
 
 function statusClass(status) {
-  return "status-" + (status || "not started").toLowerCase().replace(/\s+/g, "-");
+  return "status-" + (status || "identified").toLowerCase().replace(/\s+/g, "-");
 }
 
 function renderStats(list) {
   const active = list.filter((o) => !o.archived);
   const withinWindow = active.filter((o) => o.daysUntilDeadline !== null && o.daysUntilDeadline >= 0 && o.daysUntilDeadline <= 21);
-  const awarded = active.filter((o) => o.status === "awarded");
+  const awarded = active.filter((o) => o.status === "won");
   const avgScore = (() => {
     const scored = active.filter((o) => o.score && typeof o.score.score === "number");
     if (!scored.length) return "—";
@@ -64,7 +64,7 @@ function renderStats(list) {
   statsStrip.innerHTML = `
     <div class="stat"><div class="num">${active.length}</div><div class="label">Tracked opportunities</div></div>
     <div class="stat"><div class="num">${withinWindow.length}</div><div class="label">Deadlines within 21 days</div></div>
-    <div class="stat"><div class="num">${awarded.length}</div><div class="label">Awarded</div></div>
+    <div class="stat"><div class="num">${awarded.length}</div><div class="label">Won</div></div>
     <div class="stat"><div class="num">${avgScore}</div><div class="label">Avg. AI fit score</div></div>
   `;
 }
@@ -102,7 +102,7 @@ function renderPriorities(list) {
 }function applyFiltersAndSort(list) {
   let out = list.filter((o) => (state.showArchived ? true : !o.archived));
   if (state.venture !== "all") out = out.filter((o) => (o.ventureFit || []).includes(state.venture));
-  if (state.status !== "all") out = out.filter((o) => (o.status || "not started") === state.status);
+  if (state.status !== "all") out = out.filter((o) => (o.status || "identified") === state.status);
 
   if (state.sort === "deadline") {
     out = out.sort((a, b) => {
@@ -159,7 +159,7 @@ function render() {
         </div>
         <div class="card-meta">
           <span class="deadline-badge ${deadlineBadgeClass(days)}">${deadlineText}</span>
-          <span class="status-pill ${statusClass(o.status)}">${o.status || "not started"}</span>
+          <span class="status-pill ${statusClass(o.status)}">${o.status || "identified"}</span>
         </div>
         <div class="card-meta"><span>${amountLabel(o)}</span><span>${escapeHtml(o.type || "")}</span></div>
       </article>`;
@@ -213,7 +213,7 @@ function openDetail(id) {
     <div id="statusRow">
       <label class="muted" style="display:flex;gap:8px;align-items:center;">Status:
         <select id="statusSelect">
-          ${["not started", "in progress", "submitted", "awarded", "rejected"]
+         ${["identified", "pursuing", "proposed", "decision pending", "won", "declined"]
             .map((s) => `<option value="${s}" ${o.status === s ? "selected" : ""}>${s}</option>`)
             .join("")}
         </select>
@@ -317,7 +317,7 @@ function openForm(existing) {
     oppForm.elements.sdgs.value = (existing.sdgs || []).join(", ");
     oppForm.elements.pastWinners.value = existing.pastWinners || "";
     oppForm.elements.reviewTimeline.value = existing.reviewTimeline || "";
-    oppForm.elements.status.value = existing.status || "not started";
+    oppForm.elements.status.value = existing.status || "identified";
     oppForm.elements.notes.value = existing.notes || "";
     [...oppForm.elements.ventureFit.options].forEach((opt) => (opt.selected = (existing.ventureFit || []).includes(opt.value)));
   }
