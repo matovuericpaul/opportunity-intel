@@ -141,12 +141,13 @@
     </div>
     <div class="filter-group" role="group" aria-label="Filter by status">
       <select id="statusFilter">
-        <option value="all">All statuses</option>
-        <option value="not started">Not started</option>
-        <option value="in progress">In progress</option>
-        <option value="submitted">Submitted</option>
-        <option value="awarded">Awarded</option>
-        <option value="rejected">Rejected</option>
+        <option value="all">All stages</option>
+        <option value="identified">Identified</option>
+        <option value="pursuing">Pursuing</option>
+        <option value="proposed">Proposed</option>
+        <option value="decision pending">Decision pending</option>
+        <option value="won">Won</option>
+        <option value="declined">Declined</option>
       </select>
     </div>
     <label class="checkbox-inline">
@@ -193,6 +194,9 @@
             <option value="fellowship">Fellowship</option>
             <option value="prize">Prize</option>
             <option value="challenge fund">Challenge fund</option>
+            <option value="conference">Conference / visibility event</option>
+            <option value="partnership">Partnership / MOU</option>
+            <option value="collaboration">Strategic collaboration</option>
           </select>
         </label>
         <label>Currency <input name="currency" value="USD" /></label>
@@ -220,13 +224,14 @@
             <option value="fbt">SBE FBT</option>
           </select>
         </label>
-        <label>Status
+        <label>Stage
           <select name="status">
-            <option value="not started">Not started</option>
-            <option value="in progress">In progress</option>
-            <option value="submitted">Submitted</option>
-            <option value="awarded">Awarded</option>
-            <option value="rejected">Rejected</option>
+            <option value="identified">Identified</option>
+            <option value="pursuing">Pursuing</option>
+            <option value="proposed">Proposed</option>
+            <option value="decision pending">Decision pending</option>
+            <option value="won">Won</option>
+            <option value="declined">Declined</option>
           </select>
         </label>
       </div>
