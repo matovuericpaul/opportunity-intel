@@ -34,7 +34,46 @@
 </header>
 
 <main>
-  
+    <!-- ========== PRIORITIES (always visible) ========== -->
+  <section class="priorities" aria-label="Current priorities">
+    <div class="priorities-header">
+      <h2>Priorities</h2>
+      <p class="priorities-sub">What needs attention for SBE Aquafarm &amp; SBE FBT</p>
+    </div>
+
+    <div class="priorities-grid">
+      <!-- Left: Urgent -->
+      <div class="priority-card priority-urgent">
+        <div class="priority-label">
+          <span class="priority-dot urgent-dot"></span>
+          Urgent
+        </div>
+        <div class="priority-metric">
+          <span class="priority-number urgent-number" id="urgentCount">0</span>
+          <span class="priority-metric-label">deadlines in the next 14 days</span>
+        </div>
+        <ul class="priority-list" id="urgentList">
+          <li class="priority-empty">No urgent deadlines right now</li>
+        </ul>
+        <div class="priority-new">
+          <span class="priority-new-count" id="newCount">0</span> new opportunities discovered recently
+        </div>
+      </div>
+
+      <!-- Right: Recommended -->
+      <div class="priority-card priority-focus">
+        <div class="priority-label">
+          <span class="priority-dot focus-dot"></span>
+          Recommended focus
+        </div>
+        <p class="priority-focus-intro">Highest-fit opportunities the team should review first</p>
+        <ul class="priority-list" id="focusList">
+          <li class="priority-empty">Loading recommendations…</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- ========== END PRIORITIES ========== -->
 
   <section class="hero">
 
