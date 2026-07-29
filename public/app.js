@@ -69,7 +69,37 @@ function renderStats(list) {
   `;
 }
 
-function applyFiltersAndSort(list) {
+function renderPriorities(list) {
+  const active = list.filter((o) => !o.archived);
+
+  const urgent = active
+    .filter((o) => o.daysUntilDeadline !== null && o.daysUntilDeadline >= 0 && o.daysUntilDeadline <= 14)
+    .sort((a, b) => a.daysUntilDeadline - b.daysUntilDeadline);
+
+  const urgentCountEl = document.getElementById("urgentCount");
+  const urgentListEl = document.getElementById("urgentList");
+  if (urgentCountEl) urgentCountEl.textContent = urgent.length;
+  if (urgentListEl) {
+    urgentListEl.innerHTML = urgent.length
+      ? urgent.slice(0, 5).map((o) => `<li><span>${escapeHtml(o.name)}</span><span>${o.daysUntilDeadline}d</span></li>`).join("")
+      : `<li class="priority-empty">No urgent deadlines right now</li>`;
+  }
+
+  const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  const recentlyAdded = active.filter((o) => o.dateAdded && o.dateAdded >= sevenDaysAgo);
+  const newCountEl = document.getElementById("newCount");
+  if (newCountEl) newCountEl.textContent = recentlyAdded.length;
+
+  const scored = active
+    .filter((o) => o.score && typeof o.score.score === "number")
+    .sort((a, b) => b.score.score - a.score.score);
+  const focusListEl = document.getElementById("focusList");
+  if (focusListEl) {
+    focusListEl.innerHTML = scored.length
+      ? scored.slice(0, 4).map((o) => `<li><span>${escapeHtml(o.name)}</span><span>${o.score.score}</span></li>`).join("")
+      : `<li class="priority-empty">Score opportunities to see recommendations here</li>`;
+  }
+}function applyFiltersAndSort(list) {
   let out = list.filter((o) => (state.showArchived ? true : !o.archived));
   if (state.venture !== "all") out = out.filter((o) => (o.ventureFit || []).includes(state.venture));
   if (state.status !== "all") out = out.filter((o) => (o.status || "not started") === state.status);
@@ -99,6 +129,7 @@ function fmt(n) { return Number(n).toLocaleString(); }
 function render() {
   const filtered = applyFiltersAndSort(allOpportunities);
   renderStats(allOpportunities);
+  renderPriorities(allOpportunities);
 
   if (!filtered.length) {
     grid.innerHTML = `<p class="loading">No opportunities match these filters yet.</p>`;
